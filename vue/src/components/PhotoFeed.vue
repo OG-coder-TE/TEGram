@@ -53,11 +53,9 @@
               v-bind:likes="photo.likes"
               v-bind:pictureId="photo.pictureId"
             />
-          
-            <comment-list v-bind:comments="photo.comments" />
             <comment-manager v-bind:pictureId="photo.pictureId" />
           </div>
-          <details v-bind:pictureId="photo.pictureId" />
+          <comment-list v-bind:comments="photo.comments" />
         </div>
       </div>
     </div>
@@ -112,7 +110,7 @@ export default {
 .pic-info {
   display: inline-flex;
   justify-content: flex-end;
-  margin: 3px 10px;
+  margin-right: 10px;
 }
 #idcard-body > * {
   margin-bottom: 5px;
