@@ -69,10 +69,6 @@ import LikeList from "./LikeList.vue";
 import Comment from "./Comment.vue";
 import CommentManager from "./CommentManager";
 import LikeManager from "./LikeManager.vue";
-<<<<<<< HEAD
-import RatingManager from "./RatingManager.vue"
-=======
->>>>>>> 8a2a527267624eb192fa50c00e3fae5549b0a605
 import RateLists from "./RateLists.vue";
 import FavoriteManager from "./FavoriteManager.vue";
 import CommentList from "./CommentList.vue";
@@ -91,11 +87,7 @@ export default {
     RateLists,
     FavoriteManager,
     CommentList,
-<<<<<<< HEAD
-    
-=======
     StarRating,
->>>>>>> 8a2a527267624eb192fa50c00e3fae5549b0a605
   },
 };
 </script>
