@@ -1,19 +1,21 @@
 <template>
-  <div id="favbtn2">
+  <div id="btns">
     <div v-if="isUsersPic">
       <a
+        id="publicbtn"
         data-toggle="tooltip"
-        title="Add to Favorites"
-        v-if="!favorited"
-        @click="editFavorite(photo)"
-        >&nbsp;<font-awesome-icon :icon="['far', 'heart']" />&nbsp;
+        title="Public view"
+        v-if="!privated"
+        @click="editPrivate(photo)"
+        >&nbsp;<font-awesome-icon :icon="['fas', 'users']" />&nbsp;
       </a>
       <a
+        id="privatebtn"
         data-toggle="tooltip"
-        title="In Favorites"
+        title="Private"
         v-else
-        @click="editFavorite(photo)"
-        >&nbsp;<font-awesome-icon :icon="['fas', 'heart']" />&nbsp;
+        @click="editPrivate(photo)"
+        >&nbsp;<font-awesome-icon :icon="['fas', 'user-shield']" />&nbsp;
       </a>
     </div>
   </div>
@@ -26,20 +28,20 @@ export default {
   props: ["photo"],
   data() {
     return {
-      favorited: this.photo.favorite,
+      privated: this.photo.private,
       isUsersPic: this.photo.userId == this.$store.state.user.id,
     };
   },
 
   methods: {
-    editFavorite(photo) {
-      photo.favorite = !photo.favorite;
+    editPrivate(photo) {
+      photo.private = !photo.private;
       photoService
-        .editFavorite(photo)
+        .editPrivate(photo)
         .then((res) => {
           if (res.status === 201) {
-            this.$store.commit("EDIT_FAVORITE", res.data);
-            this.favorited = this.photo.favorite;
+            this.$store.commit("EDIT_PRIVATE", res.data);
+            this.privated = this.photo.private;
           }
         })
         .catch((err) => {
@@ -51,17 +53,22 @@ export default {
 </script>
 
 <style >
-#favbtn2 {
+#btns {
   position: absolute;
   top: 5px;
-  right: 5px;
+  left: 5px;
   font-size: 13pt;
-  color: gold;
 }
 
-#favbtn2:hover {
+#btns:hover {
   -webkit-filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.904));
   filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.959));
   transform: scale(1.2, 1.2);
+}
+#publicbtn {
+  color: dodgerblue;
+}
+#privatebtn {
+  color: crimson;
 }
 </style>

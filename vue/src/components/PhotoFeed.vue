@@ -16,6 +16,7 @@
         v-bind:key="photo.pictureId"
       >
         <favorite-manager v-bind:photo="photo" />
+        <private-manager v-bind:photo="photo" />
         <router-link
           v-bind:to="{
             name: 'photo-detail',
@@ -71,6 +72,7 @@ import RateLists from "./RateLists.vue";
 import FavoriteManager from "./FavoriteManager.vue";
 import CommentList from "./CommentList.vue";
 import StarRating from "./StarRating.vue";
+import PrivateManager from "./PrivateManager.vue";
 
 
 export default {
@@ -86,6 +88,7 @@ export default {
     FavoriteManager,
     CommentList,
     StarRating,
+    PrivateManager,
   },
 };
 </script>

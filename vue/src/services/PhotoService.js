@@ -43,5 +43,8 @@ export default {
     editRating(rating) {
         return axios.put('/editrate', rating);
     },
+    editPrivate(photo) {
+        return axios.put("/editprivate", photo)
+    },
 
 }

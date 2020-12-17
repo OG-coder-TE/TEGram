@@ -136,6 +136,20 @@ public class PicServiceSqlDAO implements PicServiceDAO{
 	
 	}
 	
+	@Override
+	public Picture updatePrivate(Picture picture) {
+		String sql ="UPDATE pictures SET private=? WHERE picture_id=?";
+		
+		try {
+			jdbcTemplate.update(sql, picture.isPrivate(), picture.getPictureId());
+			
+		} catch (DataAccessException e) {
+			throw new DataAccessResourceFailureException("Can not reach database " + e.getMessage());
+		}
+		return picture;
+	
+	}
+	
 	
 	
 	//helpers

@@ -16,5 +16,6 @@ public interface PicServiceDAO {
 	Ratings addRating (int pictureId, int userId, int rating);
 	Ratings changeRating (int ratingId, int rating);
 	Picture updateFavorite(Picture picture);
+	Picture updatePrivate(Picture picture);
 
 }

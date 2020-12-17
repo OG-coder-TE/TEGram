@@ -112,5 +112,13 @@ export default new Vuex.Store({
       state.photos = state.photos.filter(p => p.favorite == true);
 
     },
+    EDIT_PRIVATE(state, photo) {
+      state.photos.forEach(p => {
+        if (p.pictureId == photo.pictureId) {
+          p = photo;
+        }
+      });
+    },
+
   }
 })
