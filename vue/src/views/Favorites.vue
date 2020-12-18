@@ -1,17 +1,20 @@
 <template>
-  <photo-feed
-    v-bind:photos="this.$store.state.photos"
-    v-bind:pageLoaded="this.pageLoaded"
-  />
+  <div class="favorites">
+    <h1>Favorite List</h1>
+
+    <photo-feed
+      v-bind:photos="this.$store.state.photos"
+      v-bind:pageLoaded="this.pageLoaded"
+    />
+  </div>
 </template>
 
 <script>
 import PhotoService from "@/services/PhotoService";
-import PhotoFeed from "../components/PhotoFeed";
-
-
+import PhotoFeed from "../components/PhotoFeed.vue";
 export default {
-  name: "homeview",
+  name: "favorites",
+
   components: {
     PhotoFeed,
   },
@@ -25,9 +28,10 @@ export default {
   },
   methods: {
     retrievePhotos() {
-      PhotoService.getPhotos()
+      PhotoService.getUserPhotos()
         .then((response) => {
           this.$store.commit("SET_PHOTOS", response.data);
+          this.$store.commit("FAVORITE_FILTER");
           this.pageLoaded = true;
         })
         .catch((error) => {

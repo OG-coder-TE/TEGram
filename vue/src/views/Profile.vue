@@ -1,17 +1,19 @@
 <template>
-  <photo-feed
-    v-bind:photos="this.$store.state.photos"
-    v-bind:pageLoaded="this.pageLoaded"
-  />
+  <div class="Profile">
+    <h1>Profile - Pictures</h1>
+    <photo-feed
+      v-bind:photos="this.$store.state.photos"
+      v-bind:pageLoaded="this.pageLoaded"
+    />
+  </div>
 </template>
 
 <script>
 import PhotoService from "@/services/PhotoService";
 import PhotoFeed from "../components/PhotoFeed";
 
-
 export default {
-  name: "homeview",
+  name: "profile",
   components: {
     PhotoFeed,
   },
@@ -25,7 +27,7 @@ export default {
   },
   methods: {
     retrievePhotos() {
-      PhotoService.getPhotos()
+      PhotoService.getUserPhotos()
         .then((response) => {
           this.$store.commit("SET_PHOTOS", response.data);
           this.pageLoaded = true;
@@ -46,3 +48,4 @@ export default {
   },
 };
 </script>
+

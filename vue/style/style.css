@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+body {
+    /* background-color: #f9f9f9; */
+    font-family: "Montserrat";
+    color:#2CB2EA;
+  }
+  #logo {
+      top: 40px;
+      padding-top: 10px;
+      padding-left: 20px;
+  }
+  #nav {
+      background-color: #f9f9f9;
+      text-align: right; 
+      position: sticky;
+      top: 0px;
+      color:#2CB2EA;
+      padding-bottom: 20px;
+      padding-right: 130px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #2CB2EA;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  .nav-links div > *{
+      font-size: 8pt;
+  }
+  .nav-links div>:hover{
+    text-decoration: none;
+}
+  #app {
+      color:#2CB2EA;
+  }
+  .card {
+      margin: auto;
+  }
+  .card:hover{
+    z-index: 1;
+    transform: scale(1.13);
+  }
+  .home {
+      margin: auto;
+  }
+  .feed {
+      margin:auto;
+  }
+  .topImage{
+      width: 40px;
+      height: 40px;
+  }
+  #logo:hover, .topImage:hover{
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.904));
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.904));
+    transform: scale(1.2, 1.2);
+}
+#go-back{
+    padding-left: 40px; 
+    font-size: 30pt;
+    color: #2CB2EA;
+}
+#go-back:hover{
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.904));
+    filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.904));
+}
+
+  @media screen and (max-width: 425px) {
+    #nav {
+        background-color: white;
+        text-align: right; 
+        position: sticky;
+        top: 0px;
+        color:#2CB2EA;
+        padding-bottom: 20px;
+        padding-right: 10px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #2CB2EA;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
